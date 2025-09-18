@@ -56,6 +56,7 @@ resource "azurerm_linux_function_app" "main" {
 
   app_settings = {
     "WEBSITE_RUN_FROM_PACKAGE"              = "1"
+    "TIMEZONE"                              = "America/New_York"
     "TODOIST_API_TOKEN"                     = var.todoist_api_token
     "HEIDI_PROJECT_ID"                      = var.heidi_project_id
   }

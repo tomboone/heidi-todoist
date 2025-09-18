@@ -2,6 +2,7 @@ import os
 import logging
 from datetime import datetime, timedelta
 import requests
+from zoneinfo import ZoneInfo
 from todoist_api_python.api import TodoistAPI
 
 
@@ -18,16 +19,18 @@ class TodoistService:
         self.logger = logging.getLogger(__name__)
 
     def _calculate_next_due_time(self) -> str:
-        """Calculate the next due time: 4.5 hours from now, but not before 8:30am."""
-        now = datetime.now()
+        """Calculate the next due time: 4.5 hours from now, but not before 8:30am in the configured timezone."""
+        timezone_name = os.environ.get('TIMEZONE', 'America/New_York')
+        tz = ZoneInfo(timezone_name)
+        now = datetime.now(tz)
         next_due = now + timedelta(hours=4.5)
 
         # If the calculated time is before 8:30am, set it to 8:30am
         if next_due.hour < 8 or (next_due.hour == 8 and next_due.minute < 30):
             next_due = next_due.replace(hour=8, minute=30, second=0, microsecond=0)
 
-        # Format as ISO datetime string for Todoist API
-        return next_due.strftime('%Y-%m-%dT%H:%M:%S')
+        # Format as ISO datetime string with timezone for Todoist API
+        return next_due.isoformat()
 
     def _extract_project_id(self, project_id: str) -> str:
         """Extract or validate the project ID format."""
