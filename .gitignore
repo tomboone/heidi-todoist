@@ -4,10 +4,6 @@ csx
 .vs
 edge
 Publish
-.vscode
-.idea
-
-.claude
 
 *.user
 *.suo
@@ -50,3 +46,33 @@ __pycache__/
 __blobstorage__
 __queuestorage__
 __azurite_db*__.json
+azurite-debug.log
+azurite-data
+
+.poetry
+.DS_Store
+.idea
+.vscode
+
+*.sql
+*.log
+
+.coverage
+htmlcov/
+
+CLAUDE.md
+.claude
+
+# Terraform local development files
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfplan
+override.tf
+override.tf.json
+*_override.tf
+tfplan
+backend.hcl
