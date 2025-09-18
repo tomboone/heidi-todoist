@@ -21,6 +21,12 @@ env:
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
   ARM_USE_OIDC: true
+  TF_VAR_service_plan_name: ${{ secrets.SERVICE_PLAN_NAME }}
+  TF_VAR_service_plan_rg_name: ${{ secrets.SERVICE_PLAN_RG_NAME }}
+  TF_VAR_log_analytics_workspace_name: ${{ secrets.LOG_ANALYTICS_WORKSPACE_NAME }}
+  TF_VAR_log_analytics_workspace_rg_name: ${{ secrets.LOG_ANALYTICS_WORKSPACE_RG_NAME }}
+  TF_VAR_todoist_api_token: ${{ secrets.TODOIST_API_TOKEN }}
+  TF_VAR_heidi_project_id: ${{ secrets.HEIDI_PROJECT_ID }}
   TF_WORKING_DIR: ./terraform
 
 jobs:
