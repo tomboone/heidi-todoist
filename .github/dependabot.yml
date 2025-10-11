@@ -12,7 +12,6 @@ updates:
       day: "saturday"
       time: "09:00"
       timezone: "America/New_York"
-    target-branch: "feature/dependency-updates"
     commit-message:
       prefix: "deps"
       include: "scope"
@@ -30,7 +29,6 @@ updates:
       day: "saturday"
       time: "09:00"
       timezone: "America/New_York"
-    target-branch: "feature/dependency-updates"
     commit-message:
       prefix: "deps"
       include: "scope"
@@ -48,7 +46,6 @@ updates:
       day: "saturday"
       time: "09:00"
       timezone: "America/New_York"
-    target-branch: "feature/dependency-updates"
     commit-message:
       prefix: "deps"
       include: "scope"
